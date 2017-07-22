@@ -44,7 +44,6 @@ export default class Calendar extends React.Component {
     forceShowMonthNavigation: PropTypes.bool,
     onDropdownFocus: PropTypes.func,
     onSelect: PropTypes.func.isRequired,
-    onWeekSelect: PropTypes.func,
     openToDate: PropTypes.object,
     peekNextMonth: PropTypes.bool,
     scrollableYearDropdown: PropTypes.bool,
@@ -283,7 +282,6 @@ export default class Calendar extends React.Component {
                 onDayClick={this.handleDayClick}
                 onDayMouseEnter={this.handleDayMouseEnter}
                 onMouseLeave={this.handleMonthMouseLeave}
-                onWeekSelect={this.props.onWeekSelect}
                 formatWeekNumber={this.props.formatWeekNumber}
                 minDate={this.props.minDate}
                 maxDate={this.props.maxDate}
@@ -303,6 +301,31 @@ export default class Calendar extends React.Component {
                 endDate={this.props.endDate}
                 peekNextMonth={this.props.peekNextMonth}
                 utcOffset={this.props.utcOffset}/>
+              <div className={'flex-container'}>
+                <span className={'flex-item item-1'}>
+                  <img src={'stylesheets/images/time.png'} />
+                </span>
+                <span className={'flex-item item-2'}>
+                  <input name={'hours'} placeholder={'Hours'} />
+                </span>
+                <span className={'flex-item item-3'}>
+                  <input name={'minutes'} placeholder={'Minutes'} />
+                </span>
+                <span className={'flex-item item-4'}>
+                  <select>
+                    <option value={'am'}>AM</option>
+                    <option value={'pm'}>PM</option>
+                  </select>
+                </span>
+              </div>
+              <div className={'action-buttons-container'}>
+                <span className={'button cancel pull-left'}>
+                  <button>Cancel</button>
+                </span>
+                <span className={'button ok pull-right'}>
+                  <button>SET</button>
+                </span>
+              </div>
           </div>
       )
     }

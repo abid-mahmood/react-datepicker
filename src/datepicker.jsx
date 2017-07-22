@@ -50,11 +50,9 @@ export default class DatePicker extends React.Component {
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
     onSelect: PropTypes.func,
-    onWeekSelect: PropTypes.func,
     onClickOutside: PropTypes.func,
     onChangeRaw: PropTypes.func,
     onFocus: PropTypes.func,
-    onKeyDown: PropTypes.func,
     onMonthChange: PropTypes.func,
     openToDate: PropTypes.object,
     peekNextMonth: PropTypes.bool,
@@ -95,7 +93,6 @@ export default class DatePicker extends React.Component {
       dropdownMode: 'scroll',
       onFocus () {},
       onBlur () {},
-      onKeyDown () {},
       onSelect () {},
       onClickOutside () {},
       onMonthChange () {},
@@ -119,7 +116,7 @@ export default class DatePicker extends React.Component {
       this.props.openToDate ? moment(this.props.openToDate)
       : this.props.selectsEnd && this.props.startDate ? moment(this.props.startDate)
       : this.props.selectsStart && this.props.endDate ? moment(this.props.endDate)
-      : (typeof this.props.utcOffset !== 'undefined') ? moment.utc().utcOffset(this.props.utcOffset)
+      : this.props.utcOffset ? moment.utc().utcOffset(this.props.utcOffset)
       : moment()
     const minDate = getEffectiveMinDate(this.props)
     const maxDate = getEffectiveMaxDate(this.props)
@@ -263,7 +260,6 @@ export default class DatePicker extends React.Component {
   }
 
   onInputKeyDown = (event) => {
-    this.props.onKeyDown(event)
     const eventKey = event.key
     if (!this.state.open && !this.props.inline) {
       if (eventKey !== 'Enter' && eventKey !== 'Escape' && eventKey !== 'Tab') {
@@ -274,11 +270,7 @@ export default class DatePicker extends React.Component {
     const copy = moment(this.state.preSelection)
     if (eventKey === 'Enter') {
       event.preventDefault()
-      if (moment.isMoment(this.state.preSelection) || moment.isDate(this.state.preSelection)) {
-        this.handleSelect(copy, event)
-      } else {
-        this.setOpen(false)
-      }
+      this.handleSelect(copy, event)
     } else if (eventKey === 'Escape') {
       event.preventDefault()
       this.setOpen(false)
@@ -343,7 +335,6 @@ export default class DatePicker extends React.Component {
         selected={this.props.selected}
         preSelection={this.state.preSelection}
         onSelect={this.handleSelect}
-        onWeekSelect={this.props.onWeekSelect}
         openToDate={this.props.openToDate}
         minDate={this.props.minDate}
         maxDate={this.props.maxDate}
