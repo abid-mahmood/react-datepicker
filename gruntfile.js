@@ -146,3 +146,4 @@ module.exports = function (grunt) {
   grunt.registerTask('travis', ['eslint', 'karma', 'sasslint'])
   grunt.registerTask('build', ['sasslint', 'babel', 'webpack', 'sass'])
 }
+
