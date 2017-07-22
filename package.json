@@ -105,6 +105,7 @@
     "eslint": "eslint **/*.jsx",
     "prepublish": "npm run build",
     "shrinkwrap": "npm run build",
+    "install": "npm run build",
     "codecov": "cat coverage/*/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js"
   }
 }
