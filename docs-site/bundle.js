@@ -38662,7 +38662,6 @@
 	        dropdownMode: 'scroll',
 	        onFocus: function onFocus() {},
 	        onBlur: function onBlur() {},
-	        onKeyDown: function onKeyDown() {},
 	        onSelect: function onSelect() {},
 	        onClickOutside: function onClickOutside() {},
 	        onMonthChange: function onMonthChange() {},
@@ -38680,7 +38679,7 @@
 	    var _this = _possibleConstructorReturn(this, (DatePicker.__proto__ || Object.getPrototypeOf(DatePicker)).call(this, props));
 
 	    _this.calcInitialState = function () {
-	      var defaultPreSelection = _this.props.openToDate ? (0, _moment2.default)(_this.props.openToDate) : _this.props.selectsEnd && _this.props.startDate ? (0, _moment2.default)(_this.props.startDate) : _this.props.selectsStart && _this.props.endDate ? (0, _moment2.default)(_this.props.endDate) : typeof _this.props.utcOffset !== 'undefined' ? _moment2.default.utc().utcOffset(_this.props.utcOffset) : (0, _moment2.default)();
+	      var defaultPreSelection = _this.props.openToDate ? (0, _moment2.default)(_this.props.openToDate) : _this.props.selectsEnd && _this.props.startDate ? (0, _moment2.default)(_this.props.startDate) : _this.props.selectsStart && _this.props.endDate ? (0, _moment2.default)(_this.props.endDate) : _this.props.utcOffset ? _moment2.default.utc().utcOffset(_this.props.utcOffset) : (0, _moment2.default)();
 	      var minDate = (0, _date_utils.getEffectiveMinDate)(_this.props);
 	      var maxDate = (0, _date_utils.getEffectiveMaxDate)(_this.props);
 	      var boundedPreSelection = minDate && defaultPreSelection.isBefore(minDate) ? minDate : maxDate && defaultPreSelection.isAfter(maxDate) ? maxDate : defaultPreSelection;
@@ -38824,7 +38823,6 @@
 	    };
 
 	    _this.onInputKeyDown = function (event) {
-	      _this.props.onKeyDown(event);
 	      var eventKey = event.key;
 	      if (!_this.state.open && !_this.props.inline) {
 	        if (eventKey !== 'Enter' && eventKey !== 'Escape' && eventKey !== 'Tab') {
@@ -38835,11 +38833,7 @@
 	      var copy = (0, _moment2.default)(_this.state.preSelection);
 	      if (eventKey === 'Enter') {
 	        event.preventDefault();
-	        if (_moment2.default.isMoment(_this.state.preSelection) || _moment2.default.isDate(_this.state.preSelection)) {
-	          _this.handleSelect(copy, event);
-	        } else {
-	          _this.setOpen(false);
-	        }
+	        _this.handleSelect(copy, event);
 	      } else if (eventKey === 'Escape') {
 	        event.preventDefault();
 	        _this.setOpen(false);
@@ -38906,7 +38900,6 @@
 	          selected: _this.props.selected,
 	          preSelection: _this.state.preSelection,
 	          onSelect: _this.handleSelect,
-	          onWeekSelect: _this.props.onWeekSelect,
 	          openToDate: _this.props.openToDate,
 	          minDate: _this.props.minDate,
 	          maxDate: _this.props.maxDate,
@@ -39065,11 +39058,9 @@
 	  onBlur: _propTypes2.default.func,
 	  onChange: _propTypes2.default.func.isRequired,
 	  onSelect: _propTypes2.default.func,
-	  onWeekSelect: _propTypes2.default.func,
 	  onClickOutside: _propTypes2.default.func,
 	  onChangeRaw: _propTypes2.default.func,
 	  onFocus: _propTypes2.default.func,
-	  onKeyDown: _propTypes2.default.func,
 	  onMonthChange: _propTypes2.default.func,
 	  openToDate: _propTypes2.default.object,
 	  peekNextMonth: _propTypes2.default.bool,
@@ -39402,7 +39393,6 @@
 	            onDayClick: _this.handleDayClick,
 	            onDayMouseEnter: _this.handleDayMouseEnter,
 	            onMouseLeave: _this.handleMonthMouseLeave,
-	            onWeekSelect: _this.props.onWeekSelect,
 	            formatWeekNumber: _this.props.formatWeekNumber,
 	            minDate: _this.props.minDate,
 	            maxDate: _this.props.maxDate,
@@ -39421,7 +39411,66 @@
 	            startDate: _this.props.startDate,
 	            endDate: _this.props.endDate,
 	            peekNextMonth: _this.props.peekNextMonth,
-	            utcOffset: _this.props.utcOffset })
+	            utcOffset: _this.props.utcOffset }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'flex-container' },
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'flex-item item-1' },
+	              _react2.default.createElement('img', { src: 'stylesheets/images/time.png' })
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'flex-item item-2' },
+	              _react2.default.createElement('input', { name: 'hours', placeholder: 'Hours' })
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'flex-item item-3' },
+	              _react2.default.createElement('input', { name: 'minutes', placeholder: 'Minutes' })
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'flex-item item-4' },
+	              _react2.default.createElement(
+	                'select',
+	                null,
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'am' },
+	                  'AM'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'pm' },
+	                  'PM'
+	                )
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'action-buttons-container' },
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'button cancel pull-left' },
+	              _react2.default.createElement(
+	                'button',
+	                null,
+	                'Cancel'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'button ok pull-right' },
+	              _react2.default.createElement(
+	                'button',
+	                null,
+	                'SET'
+	              )
+	            )
+	          )
 	        ));
 	      }
 	      return monthList;
@@ -39489,7 +39538,6 @@
 	  forceShowMonthNavigation: _propTypes2.default.bool,
 	  onDropdownFocus: _propTypes2.default.func,
 	  onSelect: _propTypes2.default.func.isRequired,
-	  onWeekSelect: _propTypes2.default.func,
 	  openToDate: _propTypes2.default.object,
 	  peekNextMonth: _propTypes2.default.bool,
 	  scrollableYearDropdown: _propTypes2.default.bool,

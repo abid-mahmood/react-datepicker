@@ -22,7 +22,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/Hacker0x01/react-datepicker.git"
+    "url": "git://github.com/abid-mahmood/react-datepicker.git"
   },
   "bugs": {
     "url": "https://github.com/Hacker0x01/react-datepicker/issues"
@@ -51,15 +51,6 @@
     "eslint-plugin-standard": "^2.0.1",
     "express": "^4.14.1",
     "extract-text-webpack-plugin": "^1.0.1",
-    "grunt": "1.0.1",
-    "grunt-babel": "^6.0.0",
-    "grunt-cli": "^1.2.0",
-    "grunt-contrib-watch": "1.0.0",
-    "grunt-eslint": "^19.0.0",
-    "grunt-karma": "^2.0.0",
-    "grunt-sass": "2.0.0",
-    "grunt-sass-lint": "^0.2.2",
-    "grunt-webpack": "^1.0.11",
     "highlight.js": "^9.9.0",
     "isparta-loader": "^2.0.0",
     "karma": "^1.4.1",
@@ -96,7 +87,16 @@
     "moment": "^2.17.1",
     "prop-types": "^15.5.8",
     "react-onclickoutside": "^6.1.1",
-    "react-popper": "^0.7.0"
+    "react-popper": "^0.7.0",
+    "grunt": "1.0.1",
+    "grunt-babel": "^6.0.0",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-watch": "1.0.0",
+    "grunt-eslint": "^19.0.0",
+    "grunt-karma": "^2.0.0",
+    "grunt-sass": "2.0.0",
+    "grunt-sass-lint": "^0.2.2",
+    "grunt-webpack": "^1.0.11"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production grunt build",
