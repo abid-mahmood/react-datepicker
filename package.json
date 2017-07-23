@@ -12,6 +12,11 @@
     "dist",
     "lib",
     "Gruntfile.js",
+    "webpack.config.js",
+    "webpack.docs.config.js",
+    "karma.conf.js",
+    ".eslintrc",
+    ".sass-lint.yml",
     "src/stylesheets"
   ],
   "keywords": [
