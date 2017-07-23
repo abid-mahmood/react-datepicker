@@ -141,9 +141,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-karma')
   grunt.loadNpmTasks('grunt-eslint')
 
-  // grunt.registerTask('default', ['watch', 'sasslint'])
-  grunt.registerTask('default', ['sasslint', 'babel', 'webpack', 'sass'])
+  grunt.registerTask('default', ['watch', 'sasslint'])
   grunt.registerTask('travis', ['eslint', 'karma', 'sasslint'])
-  grunt.registerTask('build', ['sasslint', 'babel', 'webpack', 'sass'])
+  grunt.registerTask('build', ['babel', 'sasslint', 'webpack', 'sass'])
 }
 
