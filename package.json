@@ -11,6 +11,7 @@
     "*.md",
     "dist",
     "lib",
+    "Gruntfile.js",
     "src/stylesheets"
   ],
   "keywords": [
