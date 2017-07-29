@@ -17,6 +17,16 @@ var mergeWebpackConfig = function (config) {
 module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    // image: {
+    //   dynamic: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: 'src/stylesheets',
+    //       src: ['**/*.{png,jpg,gif,svg}'],
+    //       dest: 'dist'
+    //     }]
+    //   }
+    // },
     sass: {
       min: {
         files: {
@@ -134,6 +144,7 @@ module.exports = function (grunt) {
   })
 
   grunt.loadNpmTasks('grunt-sass')
+  // grunt.loadNpmTasks('grunt-image')
   grunt.loadNpmTasks('grunt-sass-lint')
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-babel')
@@ -143,6 +154,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', ['watch', 'sasslint'])
   grunt.registerTask('travis', ['eslint', 'karma', 'sasslint'])
+  // grunt.registerTask('build', ['image', 'babel', 'sasslint', 'webpack', 'sass'])
   grunt.registerTask('build', ['babel', 'sasslint', 'webpack', 'sass'])
 }
 

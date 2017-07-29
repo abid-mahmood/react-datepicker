@@ -381,7 +381,8 @@ export default class DatePicker extends React.Component {
         className={this.props.calendarClassName}
         yearDropdownItemNumber={this.props.yearDropdownItemNumber}
         handleSetDate={this.handleSetDateAndTime}
-        handleCancelEvent={this.handleCancelEvent}>
+        handleCancelEvent={this.handleCancelEvent}
+        addBefore={this.props.addBefore ? this.props.addBefore : ''}>
       {this.props.children}
     </WrappedCalendar>
   }

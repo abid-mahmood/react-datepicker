@@ -74,7 +74,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _popper_component = __webpack_require__(20);
+	var _popper_component = __webpack_require__(21);
 
 	var _popper_component2 = _interopRequireDefault(_popper_component);
 
@@ -413,7 +413,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          className: _this.props.calendarClassName,
 	          yearDropdownItemNumber: _this.props.yearDropdownItemNumber,
 	          handleSetDate: _this.handleSetDateAndTime,
-	          handleCancelEvent: _this.handleCancelEvent },
+	          handleCancelEvent: _this.handleCancelEvent,
+	          addBefore: _this.props.addBefore ? _this.props.addBefore : '' },
 	        _this.props.children
 	      );
 	    };
@@ -913,7 +914,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2.default.createElement(
 	              'span',
 	              { className: 'flex-item item-1' },
-	              _react2.default.createElement('img', { src: 'stylesheets/images/time.png' })
+	              _react2.default.createElement('img', { src: __webpack_require__(20) })
 	            ),
 	            _react2.default.createElement(
 	              'span',
@@ -2695,6 +2696,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__.p + "f1bcd9d87ad5f3409ee1a6494c97129c.png";
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -2712,7 +2719,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _reactPopper = __webpack_require__(21);
+	var _reactPopper = __webpack_require__(22);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2792,7 +2799,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = PopperComponent;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2802,19 +2809,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.Arrow = exports.Popper = exports.Target = exports.Manager = undefined;
 
-	var _Manager2 = __webpack_require__(22);
+	var _Manager2 = __webpack_require__(23);
 
 	var _Manager3 = _interopRequireDefault(_Manager2);
 
-	var _Target2 = __webpack_require__(23);
+	var _Target2 = __webpack_require__(24);
 
 	var _Target3 = _interopRequireDefault(_Target2);
 
-	var _Popper2 = __webpack_require__(24);
+	var _Popper2 = __webpack_require__(25);
 
 	var _Popper3 = _interopRequireDefault(_Popper2);
 
-	var _Arrow2 = __webpack_require__(28);
+	var _Arrow2 = __webpack_require__(29);
 
 	var _Arrow3 = _interopRequireDefault(_Arrow2);
 
@@ -2826,7 +2833,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Arrow = _Arrow3.default;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2917,7 +2924,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Manager;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2985,7 +2992,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Target;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3006,11 +3013,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _popper = __webpack_require__(25);
+	var _popper = __webpack_require__(26);
 
 	var _popper2 = _interopRequireDefault(_popper);
 
-	var _isEqualShallow = __webpack_require__(26);
+	var _isEqualShallow = __webpack_require__(27);
 
 	var _isEqualShallow2 = _interopRequireDefault(_isEqualShallow);
 
@@ -3245,7 +3252,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Popper;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**!
@@ -5684,7 +5691,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*!
@@ -5696,7 +5703,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var isPrimitive = __webpack_require__(27);
+	var isPrimitive = __webpack_require__(28);
 
 	module.exports = function isEqual(a, b) {
 	  if (!a && !b) { return true; }
@@ -5717,7 +5724,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
 	/*!
@@ -5736,7 +5743,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';

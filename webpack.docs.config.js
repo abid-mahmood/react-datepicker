@@ -12,7 +12,7 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.png', '.scss', '.css'],
 
     // Needed to direct the docs to the local version of the datepicker, this is not needed for
     // normal setup.
@@ -25,7 +25,8 @@ module.exports = {
     loaders: [
       { test: /\.js/, loader: 'babel', exclude: /node_modules/ },
       { test: /\.scss/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader') },
-      { test: /\.css/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') }
+      { test: /\.css/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
+      { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file' }
     ]
   },
   node: { Buffer: false },

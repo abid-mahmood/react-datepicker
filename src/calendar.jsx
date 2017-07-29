@@ -6,7 +6,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { isSameDay, allDaysDisabledBefore, allDaysDisabledAfter, getEffectiveMinDate, getEffectiveMaxDate } from './date_utils'
-
 const DROPDOWN_FOCUS_CLASSNAMES = [
   'react-datepicker__year-select',
   'react-datepicker__month-select'
@@ -315,7 +314,7 @@ export default class Calendar extends React.Component {
                 utcOffset={this.props.utcOffset}/>
               <div className={'flex-container'}>
                 <span className={'flex-item item-1'}>
-                  <img src={'stylesheets/images/time.png'} />
+                  <img src={require('./stylesheets/images/time.png')} />
                 </span>
                 <span className={'flex-item item-2'}>
                   <input name={'hours'} id='hours' placeholder={'Hours'} />

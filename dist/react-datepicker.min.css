@@ -141,7 +141,7 @@
 
 .react-datepicker__month-container {
   width: 375px;
-  height: 424px;
+  height: 400px;
   border-radius: 4px;
   background-color: #ffffff;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.18); }
@@ -162,11 +162,12 @@
       color: #000000;
       border: none;
       background: none;
-      cursor: pointer; }
+      cursor: pointer;
+      margin-left: 15px; }
     .react-datepicker__month-container .action-buttons-container .ok button {
       width: 60px;
       height: 30px;
-      margin-left: 270px;
+      margin-left: 255px;
       background-color: #6078e4;
       border: none;
       color: #ffffff;
@@ -180,12 +181,23 @@
       padding-right: 10px; }
       .react-datepicker__month-container .flex-container .flex-item:nth-child(1) {
         padding-left: 15px; }
-      .react-datepicker__month-container .flex-container .flex-item input, .react-datepicker__month-container .flex-container .flex-item select, .react-datepicker__month-container .flex-container .flex-item img {
-        width: 60px;
-        height: 35px;
-        margin-right: 3px;
+      .react-datepicker__month-container .flex-container .flex-item img {
+        margin-top: 15px;
+        margin-left: 15px;
+        margin-right: 15px; }
+      .react-datepicker__month-container .flex-container .flex-item select {
+        width: 70px;
+        height: 44px !important;
         border-radius: 4px;
         border: solid 1px #e8ecef;
+        background-color: white; }
+      .react-datepicker__month-container .flex-container .flex-item input {
+        width: 60px;
+        text-align: center;
+        height: 30px;
+        margin-right: 3px;
+        border-radius: 4px;
+        border: solid 0.2px #e8ecef;
         background-color: white; }
       .react-datepicker__month-container .flex-container .flex-item select {
         height: 49px; }
@@ -408,3 +420,6 @@
     border-left-color: #ccc; }
     .react-datepicker__portal .react-datepicker__navigation--next:hover {
       border-left-color: #b3b2b2; }
+
+.react-datepicker__day.react-datepicker__day--outside-month {
+  color: lightgray; }
