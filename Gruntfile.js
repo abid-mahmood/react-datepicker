@@ -17,21 +17,11 @@ var mergeWebpackConfig = function (config) {
 module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    // image: {
-    //   dynamic: {
-    //     files: [{
-    //       expand: true,
-    //       cwd: 'src/stylesheets',
-    //       src: ['**/*.{png,jpg,gif,svg}'],
-    //       dest: 'dist'
-    //     }]
-    //   }
-    // },
     sass: {
       min: {
         files: {
-          'dist/react-datepicker.css': 'src/stylesheets/datepicker.scss',
-          'dist/react-datepicker-cssmodules.css': 'src/stylesheets/datepicker-cssmodules.scss'
+          'dist/stylesheets/react-datepicker.css': 'src/stylesheets/datepicker.scss',
+          'dist/stylesheets/react-datepicker-cssmodules.css': 'src/stylesheets/datepicker-cssmodules.scss'
         },
         options: {
           sourcemap: 'none',
@@ -40,8 +30,8 @@ module.exports = function (grunt) {
       },
       unmin: {
         files: {
-          'dist/react-datepicker.min.css': 'src/stylesheets/datepicker.scss',
-          'dist/react-datepicker-cssmodules.min.css': 'src/stylesheets/datepicker-cssmodules.scss'
+          'dist/stylesheets/react-datepicker.min.css': 'src/stylesheets/datepicker.scss',
+          'dist/stylesheets/react-datepicker-cssmodules.min.css': 'src/stylesheets/datepicker-cssmodules.scss'
         },
         options: {
           sourcemap: 'none',
@@ -104,12 +94,12 @@ module.exports = function (grunt) {
     webpack: {
       unmin: mergeWebpackConfig({
         output: {
-          filename: 'react-datepicker.js'
+          filename: 'js/react-datepicker.js'
         }
       }),
       min: mergeWebpackConfig({
         output: {
-          filename: 'react-datepicker.min.js'
+          filename: 'js/react-datepicker.min.js'
         },
         plugins: [
           new webpack.optimize.UglifyJsPlugin({

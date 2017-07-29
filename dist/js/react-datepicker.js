@@ -2696,7 +2696,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "f1bcd9d87ad5f3409ee1a6494c97129c.png";
+	module.exports = __webpack_require__.p + "stylesheets/images/time.png";
 
 /***/ }),
 /* 21 */
