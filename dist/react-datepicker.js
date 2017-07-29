@@ -151,7 +151,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return {
 	        open: false,
 	        preventFocus: false,
-	        preSelection: _this.props.selected ? (0, _moment2.default)(_this.props.selected) : boundedPreSelection
+	        preSelection: _this.props.selected ? (0, _moment2.default)(_this.props.selected) : boundedPreSelection,
+	        hours: '',
+	        time: '',
+	        amPm: ''
 	      };
 	    };
 
@@ -185,14 +188,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    _this.deferFocusInput = function () {
-	      _this.cancelFocusInput();
-	      _this.inputFocusTimeout = setTimeout(function () {
-	        return _this.setFocus();
-	      }, 1);
+	      // this.cancelFocusInput()
+	      // this.inputFocusTimeout = setTimeout(() => this.setFocus(), 1)
 	    };
 
 	    _this.handleDropdownFocus = function () {
-	      _this.cancelFocusInput();
+	      // this.cancelFocusInput()
 	    };
 
 	    _this.handleBlur = function (event) {
@@ -226,18 +227,34 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    _this.handleSelect = function (date, event) {
-	      // Preventing onFocus event to fix issue
-	      // https://github.com/Hacker0x01/react-datepicker/issues/628
-	      _this.setState({ preventFocus: true }, function () {
-	        _this.preventFocusTimeout = setTimeout(function () {
-	          return _this.setState({ preventFocus: false });
-	        }, 50);
-	        return _this.preventFocusTimeout;
-	      });
 	      _this.setSelected(date, event);
-	      if (!_this.props.inline) {
-	        _this.setOpen(false);
-	      }
+	    };
+
+	    _this.handleSetDateAndTime = function () {
+	      var hours = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+	      var time = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+	      var amPm = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+
+	      _this.setState({
+	        hours: hours,
+	        time: time,
+	        amPm: amPm
+	      });
+	      _this.setOpen(false);
+	    };
+
+	    _this.handleCancelEvent = function () {
+	      _this.setOpen(false);
+	    };
+
+	    _this.returnDateTimeValues = function () {
+	      var _this$state = _this.state,
+	          hours = _this$state.hours,
+	          time = _this$state.time,
+	          amPm = _this$state.amPm;
+
+	      var inputValue = typeof _this.props.value === 'string' ? _this.props.value : typeof _this.state.inputValue === 'string' ? _this.state.inputValue : (0, _date_utils.safeDateFormat)(_this.props.selected, _this.props);
+	      return { time: { hours: hours, time: time, amPm: amPm }, date: inputValue };
 	    };
 
 	    _this.setSelected = function (date, event, keepInput) {
@@ -394,7 +411,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	          onMonthChange: _this.props.onMonthChange,
 	          dayClassName: _this.props.dayClassName,
 	          className: _this.props.calendarClassName,
-	          yearDropdownItemNumber: _this.props.yearDropdownItemNumber },
+	          yearDropdownItemNumber: _this.props.yearDropdownItemNumber,
+	          handleSetDate: _this.handleSetDateAndTime,
+	          handleCancelEvent: _this.handleCancelEvent },
 	        _this.props.children
 	      );
 	    };
@@ -825,6 +844,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	      );
 	    };
 
+	    _this.selectDateAndTime = function () {
+	      var hours = document.getElementById('hours').value;
+	      var minutes = document.getElementById('mins').value;
+	      var amPm = document.getElementById('amPm').value;
+
+	      _this.props.handleSetDate(hours, minutes, amPm);
+	    };
+
+	    _this.cancelDatepicker = function () {
+	      _this.props.handleCancelEvent();
+	    };
+
 	    _this.renderMonths = function () {
 	      var monthList = [];
 	      for (var i = 0; i < _this.props.monthsShown; ++i) {
@@ -887,19 +918,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2.default.createElement(
 	              'span',
 	              { className: 'flex-item item-2' },
-	              _react2.default.createElement('input', { name: 'hours', placeholder: 'Hours' })
+	              _react2.default.createElement('input', { name: 'hours', id: 'hours', placeholder: 'Hours' })
 	            ),
 	            _react2.default.createElement(
 	              'span',
 	              { className: 'flex-item item-3' },
-	              _react2.default.createElement('input', { name: 'minutes', placeholder: 'Minutes' })
+	              _react2.default.createElement('input', { name: 'minutes', id: 'mins', placeholder: 'Minutes' })
 	            ),
 	            _react2.default.createElement(
 	              'span',
 	              { className: 'flex-item item-4' },
 	              _react2.default.createElement(
 	                'select',
-	                null,
+	                { name: 'amPm', id: 'amPm' },
 	                _react2.default.createElement(
 	                  'option',
 	                  { value: 'am' },
@@ -921,7 +952,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	              { className: 'button cancel pull-left' },
 	              _react2.default.createElement(
 	                'button',
-	                null,
+	                { onClick: _this.cancelDatepicker.bind(_this) },
 	                'Cancel'
 	              )
 	            ),
@@ -930,7 +961,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	              { className: 'button ok pull-right' },
 	              _react2.default.createElement(
 	                'button',
-	                null,
+	                { onClick: _this.selectDateAndTime.bind(_this) },
 	                'SET'
 	              )
 	            )
