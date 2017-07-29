@@ -257,6 +257,18 @@ export default class Calendar extends React.Component {
     )
   }
 
+  selectDateAndTime = () => {
+    let hours = document.getElementById('hours').value
+    let minutes = document.getElementById('mins').value
+    let amPm = document.getElementById('amPm').value
+
+    this.props.handleSetDate(hours, minutes, amPm)
+  }
+
+  cancelDatepicker = () => {
+    this.props.handleCancelEvent();
+  }
+
   renderMonths = () => {
     var monthList = []
     for (var i = 0; i < this.props.monthsShown; ++i) {
@@ -306,13 +318,13 @@ export default class Calendar extends React.Component {
                   <img src={'stylesheets/images/time.png'} />
                 </span>
                 <span className={'flex-item item-2'}>
-                  <input name={'hours'} placeholder={'Hours'} />
+                  <input name={'hours'} id='hours' placeholder={'Hours'} />
                 </span>
                 <span className={'flex-item item-3'}>
-                  <input name={'minutes'} placeholder={'Minutes'} />
+                  <input name={'minutes'} id='mins' placeholder={'Minutes'} />
                 </span>
                 <span className={'flex-item item-4'}>
-                  <select>
+                  <select name='amPm' id='amPm'>
                     <option value={'am'}>AM</option>
                     <option value={'pm'}>PM</option>
                   </select>
@@ -320,10 +332,10 @@ export default class Calendar extends React.Component {
               </div>
               <div className={'action-buttons-container'}>
                 <span className={'button cancel pull-left'}>
-                  <button>Cancel</button>
+                  <button onClick={this.cancelDatepicker.bind(this)}>Cancel</button>
                 </span>
                 <span className={'button ok pull-right'}>
-                  <button>SET</button>
+                  <button onClick={this.selectDateAndTime.bind(this)}>SET</button>
                 </span>
               </div>
           </div>

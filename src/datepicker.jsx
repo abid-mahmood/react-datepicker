@@ -128,7 +128,10 @@ export default class DatePicker extends React.Component {
     return {
       open: false,
       preventFocus: false,
-      preSelection: this.props.selected ? moment(this.props.selected) : boundedPreSelection
+      preSelection: this.props.selected ? moment(this.props.selected) : boundedPreSelection,
+      hours: '',
+      time: '',
+      amPm: ''
     }
   }
 
@@ -162,12 +165,12 @@ export default class DatePicker extends React.Component {
   }
 
   deferFocusInput = () => {
-    this.cancelFocusInput()
-    this.inputFocusTimeout = setTimeout(() => this.setFocus(), 1)
+    // this.cancelFocusInput()
+    // this.inputFocusTimeout = setTimeout(() => this.setFocus(), 1)
   }
 
   handleDropdownFocus = () => {
-    this.cancelFocusInput()
+    // this.cancelFocusInput()
   }
 
   handleBlur = (event) => {
@@ -199,18 +202,29 @@ export default class DatePicker extends React.Component {
   }
 
   handleSelect = (date, event) => {
-    // Preventing onFocus event to fix issue
-    // https://github.com/Hacker0x01/react-datepicker/issues/628
-    this.setState({ preventFocus: true },
-      () => {
-        this.preventFocusTimeout = setTimeout(() => this.setState({ preventFocus: false }), 50)
-        return this.preventFocusTimeout
-      }
-    )
     this.setSelected(date, event)
-    if (!this.props.inline) {
-      this.setOpen(false)
-    }
+  }
+
+  handleSetDateAndTime = (hours = '', time = '', amPm = '') => {
+    this.setState({ 
+      hours: hours, 
+      time: time, 
+      amPm: amPm
+    })
+    this.setOpen(false)
+  }
+
+  handleCancelEvent = () => {
+    this.setOpen(false)
+  }
+
+  returnDateTimeValues = () => {
+    const { state: { hours, time, amPm } } = this;
+    const inputValue =
+      typeof this.props.value === 'string' ? this.props.value
+        : typeof this.state.inputValue === 'string' ? this.state.inputValue
+        : safeDateFormat(this.props.selected, this.props)
+    return { time: {hours, time, amPm}, date: inputValue };
   }
 
   setSelected = (date, event, keepInput) => {
@@ -365,7 +379,9 @@ export default class DatePicker extends React.Component {
         onMonthChange={this.props.onMonthChange}
         dayClassName={this.props.dayClassName}
         className={this.props.calendarClassName}
-        yearDropdownItemNumber={this.props.yearDropdownItemNumber}>
+        yearDropdownItemNumber={this.props.yearDropdownItemNumber}
+        handleSetDate={this.handleSetDateAndTime}
+        handleCancelEvent={this.handleCancelEvent}>
       {this.props.children}
     </WrappedCalendar>
   }
