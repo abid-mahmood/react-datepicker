@@ -206,11 +206,8 @@ export default class DatePicker extends React.Component {
   }
 
   handleSetDateAndTime = (hours = '', time = '', amPm = '') => {
-    this.setState({ 
-      hours: hours, 
-      time: time, 
-      amPm: amPm
-    })
+    this.setState({ hours, time, amPm })
+    this.props.setDateAndTime({ hours, time, amPm })
     this.setOpen(false)
   }
 
