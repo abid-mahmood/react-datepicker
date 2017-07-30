@@ -38773,26 +38773,26 @@
 
 	    _this.handleSetDateAndTime = function () {
 	      var hours = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-	      var time = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+	      var mins = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
 	      var amPm = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
 
-	      _this.setState({ hours: hours, time: time, amPm: amPm });
-	      _lodash2.default.isFunction(_this.props.setDateAndTime) ? _this.props.setDateAndTime(_this.returnDateTimeValues()) : '';
+	      _this.setState({ hours: hours, mins: mins, amPm: amPm });
 	      _this.setOpen(false);
+	      return _lodash2.default.isFunction(_this.props.setDateAndTime) ? _this.props.setDateAndTime(_this.returnDateTimeValues({ hours: hours, mins: mins, amPm: amPm })) : '';
 	    };
 
 	    _this.handleCancelEvent = function () {
 	      _this.setOpen(false);
 	    };
 
-	    _this.returnDateTimeValues = function () {
-	      var _this$state = _this.state,
-	          hours = _this$state.hours,
-	          time = _this$state.time,
-	          amPm = _this$state.amPm;
+	    _this.returnDateTimeValues = function (_ref) {
+	      var hours = _ref.hours,
+	          mins = _ref.mins,
+	          amPm = _ref.amPm;
 
 	      var date = typeof _this.props.value === 'string' ? _this.props.value : typeof _this.state.inputValue === 'string' ? _this.state.inputValue : (0, _date_utils.safeDateFormat)(_this.props.selected, _this.props);
-	      return { time: { hours: hours, time: time, amPm: amPm }, date: date };
+
+	      return { timeObj: { hours: hours, mins: mins, amPm: amPm }, date: date };
 	    };
 
 	    _this.setSelected = function (date, event, keepInput) {
