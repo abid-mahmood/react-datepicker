@@ -38667,6 +38667,7 @@
 	        onFocus: function onFocus() {},
 	        onBlur: function onBlur() {},
 	        onSelect: function onSelect() {},
+	        setDateAndTime: function setDateAndTime() {},
 	        onClickOutside: function onClickOutside() {},
 	        onMonthChange: function onMonthChange() {},
 

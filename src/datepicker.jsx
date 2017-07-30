@@ -96,6 +96,7 @@ export default class DatePicker extends React.Component {
       onFocus () {},
       onBlur () {},
       onSelect () {},
+      setDateAndTime () {},
       onClickOutside () {},
       onMonthChange () {},
       utcOffset: moment().utcOffset(),
