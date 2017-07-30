@@ -240,6 +240,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var amPm = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
 
 	      _this.setState({ hours: hours, time: time, amPm: amPm });
+	      console.log('Ola Dola');
+	      console.log({ hours: hours, time: time, amPm: amPm });
+	      console.log(_this);
+	      console.log(_lodash2.default.isFunction(_this.props.setDateAndTime) ? _this.props.setDateAndTime({ hours: hours, time: time, amPm: amPm }) : '');
 	      _lodash2.default.isFunction(_this.props.setDateAndTime) ? _this.props.setDateAndTime({ hours: hours, time: time, amPm: amPm }) : '';
 	      _this.setOpen(false);
 	    };
