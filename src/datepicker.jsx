@@ -210,12 +210,8 @@ export default class DatePicker extends React.Component {
 
   handleSetDateAndTime = (hours = '', time = '', amPm = '') => {
     this.setState({ hours, time, amPm })
-    console.log('Ola Dola')
-    console.log({ hours, time, amPm })
-    console.log(this)
-    console.log(_.isFunction(this.props.setDateAndTime) ?  this.props.setDateAndTime({ hours, time, amPm }) :'')
     _.isFunction(this.props.setDateAndTime) ? 
-      this.props.setDateAndTime({ hours, time, amPm }) :
+      this.props.setDateAndTime(this.returnDateTimeValues()) :
       ''
     this.setOpen(false)
   }
@@ -226,11 +222,11 @@ export default class DatePicker extends React.Component {
 
   returnDateTimeValues = () => {
     const { state: { hours, time, amPm } } = this;
-    const inputValue =
+    const date =
       typeof this.props.value === 'string' ? this.props.value
         : typeof this.state.inputValue === 'string' ? this.state.inputValue
         : safeDateFormat(this.props.selected, this.props)
-    return { time: {hours, time, amPm}, date: inputValue };
+    return { time: { hours, time, amPm }, date };
   }
 
   setSelected = (date, event, keepInput) => {

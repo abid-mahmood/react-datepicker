@@ -241,11 +241,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var amPm = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
 
 	      _this.setState({ hours: hours, time: time, amPm: amPm });
-	      console.log('Ola Dola');
-	      console.log({ hours: hours, time: time, amPm: amPm });
-	      console.log(_this);
-	      console.log(_lodash2.default.isFunction(_this.props.setDateAndTime) ? _this.props.setDateAndTime({ hours: hours, time: time, amPm: amPm }) : '');
-	      _lodash2.default.isFunction(_this.props.setDateAndTime) ? _this.props.setDateAndTime({ hours: hours, time: time, amPm: amPm }) : '';
+	      _lodash2.default.isFunction(_this.props.setDateAndTime) ? _this.props.setDateAndTime(_this.returnDateTimeValues()) : '';
 	      _this.setOpen(false);
 	    };
 
@@ -259,8 +255,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          time = _this$state.time,
 	          amPm = _this$state.amPm;
 
-	      var inputValue = typeof _this.props.value === 'string' ? _this.props.value : typeof _this.state.inputValue === 'string' ? _this.state.inputValue : (0, _date_utils.safeDateFormat)(_this.props.selected, _this.props);
-	      return { time: { hours: hours, time: time, amPm: amPm }, date: inputValue };
+	      var date = typeof _this.props.value === 'string' ? _this.props.value : typeof _this.state.inputValue === 'string' ? _this.state.inputValue : (0, _date_utils.safeDateFormat)(_this.props.selected, _this.props);
+	      return { time: { hours: hours, time: time, amPm: amPm }, date: date };
 	    };
 
 	    _this.setSelected = function (date, event, keepInput) {
@@ -652,6 +648,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return {
 	        onDropdownFocus: function onDropdownFocus() {},
 	        utcOffset: _moment2.default.utc().utcOffset(),
+	        handleSetDate: function handleSetDate() {},
 	        monthsShown: 1,
 	        forceShowMonthNavigation: false
 	      };
@@ -1023,6 +1020,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  children: _propTypes2.default.node,
 	  dateFormat: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.array]).isRequired,
 	  dayClassName: _propTypes2.default.func,
+	  handleSetDate: _propTypes2.default.func,
 	  dropdownMode: _propTypes2.default.oneOf(['scroll', 'select']).isRequired,
 	  endDate: _propTypes2.default.object,
 	  excludeDates: _propTypes2.default.array,

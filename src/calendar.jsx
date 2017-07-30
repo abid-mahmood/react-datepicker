@@ -25,6 +25,7 @@ export default class Calendar extends React.Component {
       PropTypes.array
     ]).isRequired,
     dayClassName: PropTypes.func,
+    handleSetDate: PropTypes.func,
     dropdownMode: PropTypes.oneOf(['scroll', 'select']).isRequired,
     endDate: PropTypes.object,
     excludeDates: PropTypes.array,
@@ -65,6 +66,7 @@ export default class Calendar extends React.Component {
     return {
       onDropdownFocus: () => {},
       utcOffset: moment.utc().utcOffset(),
+      handleSetDate: () => {},
       monthsShown: 1,
       forceShowMonthNavigation: false
     }
