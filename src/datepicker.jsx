@@ -221,12 +221,12 @@ export default class DatePicker extends React.Component {
   }
 
   returnDateTimeValues = ({ hours, mins, amPm }) => {
-    const date =
+    const dateInput =
       typeof this.props.value === 'string' ? this.props.value
         : typeof this.state.inputValue === 'string' ? this.state.inputValue
         : safeDateFormat(this.props.selected, this.props)
 
-    return { timeObj: { hours, mins, amPm }, date };
+    return { timeObj: { hours, mins, amPm }, date: dateInput };
   }
 
   setSelected = (date, event, keepInput) => {
