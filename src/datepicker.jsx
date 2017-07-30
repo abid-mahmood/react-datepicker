@@ -1,6 +1,7 @@
 import Calendar from './calendar'
 import React from 'react'
 import PropTypes from 'prop-types'
+import _ from 'lodash'
 import PopperComponent, { popperPlacementPositions } from './popper_component'
 import classnames from 'classnames'
 import { isSameDay, isDayDisabled, isDayInRange, getEffectiveMinDate, getEffectiveMaxDate, parseDate, safeDateFormat } from './date_utils'
@@ -209,7 +210,11 @@ export default class DatePicker extends React.Component {
     this.setState({ hours, time, amPm })
     console.log('Ola Dola')
     console.log(hours, time, amPm)
-    this.props.setDateAndTime({ hours, time, amPm })
+    console.log(_.isFunction(this.props.setDateAndTime))
+    console.log(this)
+    _.isFunction(this.props.setDateAndTime) ? 
+      this.props.setDateAndTime({ hours, time, amPm }) :
+      ''
     this.setOpen(false)
   }
 
