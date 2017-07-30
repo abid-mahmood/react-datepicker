@@ -547,6 +547,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  onBlur: _propTypes2.default.func,
 	  onChange: _propTypes2.default.func.isRequired,
 	  onSelect: _propTypes2.default.func,
+	  setDateAndTime: _propTypes2.default.func,
 	  onClickOutside: _propTypes2.default.func,
 	  onChangeRaw: _propTypes2.default.func,
 	  onFocus: _propTypes2.default.func,

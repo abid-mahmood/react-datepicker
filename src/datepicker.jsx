@@ -51,6 +51,7 @@ export default class DatePicker extends React.Component {
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
     onSelect: PropTypes.func,
+    setDateAndTime: PropTypes.func,
     onClickOutside: PropTypes.func,
     onChangeRaw: PropTypes.func,
     onFocus: PropTypes.func,
