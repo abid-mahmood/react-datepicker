@@ -29,6 +29,7 @@ export default class DatePicker extends React.Component {
       PropTypes.array
     ]),
     dateFormatCalendar: PropTypes.string,
+    addBefore: PropTypes.string,
     dayClassName: PropTypes.func,
     disabled: PropTypes.bool,
     disabledKeyboardNavigation: PropTypes.bool,

@@ -46,6 +46,7 @@ export default class Calendar extends React.Component {
     onSelect: PropTypes.func.isRequired,
     openToDate: PropTypes.object,
     peekNextMonth: PropTypes.bool,
+    addBefore: PropTypes.string,
     scrollableYearDropdown: PropTypes.bool,
     preSelection: PropTypes.object,
     selected: PropTypes.object,
@@ -316,7 +317,11 @@ export default class Calendar extends React.Component {
                 utcOffset={this.props.utcOffset}/>
               <div className={'flex-container'}>
                 <span className={'flex-item item-1'}>
-                  <img src={require('./stylesheets/images/time.png')} />
+                  <img 
+                    src={this.props.addBefore ? 
+                    this.props.addBefore : 
+                    require('./stylesheets/images/time.png')} 
+                  />
                 </span>
                 <span className={'flex-item item-2'}>
                   <input name={'hours'} id='hours' placeholder={'Hours'} />
