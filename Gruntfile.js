@@ -20,8 +20,8 @@ module.exports = function (grunt) {
     sass: {
       min: {
         files: {
-          'dist/stylesheets/react-datepicker.css': 'src/stylesheets/datepicker.scss',
-          'dist/stylesheets/react-datepicker-cssmodules.css': 'src/stylesheets/datepicker-cssmodules.scss'
+          'dist/react-datepicker.css': 'src/stylesheets/datepicker.scss',
+          'dist/react-datepicker-cssmodules.css': 'src/stylesheets/datepicker-cssmodules.scss'
         },
         options: {
           sourcemap: 'none',
@@ -30,8 +30,8 @@ module.exports = function (grunt) {
       },
       unmin: {
         files: {
-          'dist/stylesheets/react-datepicker.min.css': 'src/stylesheets/datepicker.scss',
-          'dist/stylesheets/react-datepicker-cssmodules.min.css': 'src/stylesheets/datepicker-cssmodules.scss'
+          'dist/react-datepicker.min.css': 'src/stylesheets/datepicker.scss',
+          'dist/react-datepicker-cssmodules.min.css': 'src/stylesheets/datepicker-cssmodules.scss'
         },
         options: {
           sourcemap: 'none',
