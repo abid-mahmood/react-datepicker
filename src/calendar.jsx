@@ -315,24 +315,24 @@ export default class Calendar extends React.Component {
                 endDate={this.props.endDate}
                 peekNextMonth={this.props.peekNextMonth}
                 utcOffset={this.props.utcOffset}/>
-              <div className={'flex-container'}>
-                <span className={'flex-item item-1'}>
+              <div className={'react-flex-container'}>
+                <span className={'react-custom-flex-item'}>
                   <img src={!_.isEmpty(this.props.addBefore) && this.props.addBefore} />
                 </span>
-                <span className={'flex-item item-2'}>
+                <span className={'react-custom-flex-item'}>
                   <input name={'hours'} id='hours' placeholder={'Hours'} />
                 </span>
-                <span className={'flex-item item-3'}>
+                <span className={'react-custom-flex-item'}>
                   <input name={'minutes'} id='mins' placeholder={'Minutes'} />
                 </span>
-                <span className={'flex-item item-4'}>
+                <span className={'react-custom-flex-item'}>
                   <select name='amPm' id='amPm'>
                     <option value={'am'}>AM</option>
                     <option value={'pm'}>PM</option>
                   </select>
                 </span>
               </div>
-              <div className={'action-buttons-container'}>
+              <div className={'react-action-buttons-container'}>
                 <span className={'button cancel pull-left'}>
                   <button onClick={this.cancelDatepicker.bind(this)}>Cancel</button>
                 </span>

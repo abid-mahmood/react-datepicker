@@ -39451,25 +39451,25 @@
 	            utcOffset: _this.props.utcOffset }),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'flex-container' },
+	            { className: 'react-flex-container' },
 	            _react2.default.createElement(
 	              'span',
-	              { className: 'flex-item item-1' },
+	              { className: 'react-custom-flex-item' },
 	              _react2.default.createElement('img', { src: !_.isEmpty(_this.props.addBefore) && _this.props.addBefore })
 	            ),
 	            _react2.default.createElement(
 	              'span',
-	              { className: 'flex-item item-2' },
+	              { className: 'react-custom-flex-item' },
 	              _react2.default.createElement('input', { name: 'hours', id: 'hours', placeholder: 'Hours' })
 	            ),
 	            _react2.default.createElement(
 	              'span',
-	              { className: 'flex-item item-3' },
+	              { className: 'react-custom-flex-item' },
 	              _react2.default.createElement('input', { name: 'minutes', id: 'mins', placeholder: 'Minutes' })
 	            ),
 	            _react2.default.createElement(
 	              'span',
-	              { className: 'flex-item item-4' },
+	              { className: 'react-custom-flex-item' },
 	              _react2.default.createElement(
 	                'select',
 	                { name: 'amPm', id: 'amPm' },
@@ -39488,7 +39488,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'action-buttons-container' },
+	            { className: 'react-action-buttons-container' },
 	            _react2.default.createElement(
 	              'span',
 	              { className: 'button cancel pull-left' },
