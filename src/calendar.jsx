@@ -317,11 +317,7 @@ export default class Calendar extends React.Component {
                 utcOffset={this.props.utcOffset}/>
               <div className={'flex-container'}>
                 <span className={'flex-item item-1'}>
-                  <img 
-                    src={this.props.addBefore ? 
-                    this.props.addBefore : 
-                    require('./stylesheets/images/time.png')} 
-                  />
+                  <img src={!_.isEmpty(this.props.addBefore) && this.props.addBefore} />
                 </span>
                 <span className={'flex-item item-2'}>
                   <input name={'hours'} id='hours' placeholder={'Hours'} />
