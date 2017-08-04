@@ -30,6 +30,8 @@ export default class DatePicker extends React.Component {
     ]),
     dateFormatCalendar: PropTypes.string,
     addBefore: PropTypes.string,
+    leftArrow: PropTypes.string,
+    rightArrow: PropTypes.string,
     dayClassName: PropTypes.func,
     disabled: PropTypes.bool,
     disabledKeyboardNavigation: PropTypes.bool,
@@ -385,7 +387,9 @@ export default class DatePicker extends React.Component {
         yearDropdownItemNumber={this.props.yearDropdownItemNumber}
         handleSetDate={this.handleSetDateAndTime}
         handleCancelEvent={this.handleCancelEvent}
-        addBefore={this.props.addBefore ? this.props.addBefore : ''}>
+        addBefore={this.props.addBefore ? this.props.addBefore : ''}
+        leftArrow={this.props.leftArrow ? this.props.leftArrow : ''}
+        rightArrow={this.props.rightArrow ? this.props.rightArrow : ''}>
       {this.props.children}
     </WrappedCalendar>
   }

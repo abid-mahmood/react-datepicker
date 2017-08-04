@@ -47,6 +47,8 @@ export default class Calendar extends React.Component {
     openToDate: PropTypes.object,
     peekNextMonth: PropTypes.bool,
     addBefore: PropTypes.string,
+    leftArrow: PropTypes.string,
+    rightArrow: PropTypes.string,
     scrollableYearDropdown: PropTypes.bool,
     preSelection: PropTypes.object,
     selected: PropTypes.object,
@@ -186,18 +188,20 @@ export default class Calendar extends React.Component {
     if (!this.props.forceShowMonthNavigation && allDaysDisabledBefore(this.state.date, 'month', this.props)) {
       return
     }
-    return <a
-        className="react-datepicker__navigation react-datepicker__navigation--previous"
-        onClick={this.decreaseMonth} />
+    return <img 
+        src={!_.isEmpty(this.props.leftArrow) && this.props.leftArrow}
+        onClick={this.decreaseMonth} 
+        className='react-datepicker__navigation react-datepicker__navigation--previous' />
   }
 
   renderNextMonthButton = () => {
     if (!this.props.forceShowMonthNavigation && allDaysDisabledAfter(this.state.date, 'month', this.props)) {
       return
     }
-    return <a
-        className="react-datepicker__navigation react-datepicker__navigation--next"
-        onClick={this.increaseMonth} />
+    return <img 
+        src={!_.isEmpty(this.props.rightArrow) && this.props.rightArrow}
+        onClick={this.increaseMonth} 
+        className='react-datepicker__navigation react-datepicker__navigation--next' />
   }
 
   renderCurrentMonth = (date = this.state.date) => {

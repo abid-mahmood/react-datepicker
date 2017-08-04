@@ -102,21 +102,19 @@
   z-index: 1;
 
   &--previous {
+    width: 8px;
+    height: 8px;
+    background-color: #e8ecef;
+    border-radius: 9px;
     left: 10px;
-    border-right-color: $datepicker__muted-color;
-
-    &:hover {
-      border-right-color: darken($datepicker__muted-color, 10%);
-    }
   }
 
   &--next {
+    width: 8px;
+    height: 8px;
+    background-color: #e8ecef;
+    border-radius: 9px;
     right: 10px;
-    border-left-color: $datepicker__muted-color;
-
-    &:hover {
-      border-left-color: darken($datepicker__muted-color, 10%);
-    }
   }
 
   &--years {

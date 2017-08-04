@@ -38952,7 +38952,9 @@
 	          yearDropdownItemNumber: _this.props.yearDropdownItemNumber,
 	          handleSetDate: _this.handleSetDateAndTime,
 	          handleCancelEvent: _this.handleCancelEvent,
-	          addBefore: _this.props.addBefore ? _this.props.addBefore : '' },
+	          addBefore: _this.props.addBefore ? _this.props.addBefore : '',
+	          leftArrow: _this.props.leftArrow ? _this.props.leftArrow : '',
+	          rightArrow: _this.props.rightArrow ? _this.props.rightArrow : '' },
 	        _this.props.children
 	      );
 	    };
@@ -39059,6 +39061,8 @@
 	  _propTypes2.default.string, _propTypes2.default.array]),
 	  dateFormatCalendar: _propTypes2.default.string,
 	  addBefore: _propTypes2.default.string,
+	  leftArrow: _propTypes2.default.string,
+	  rightArrow: _propTypes2.default.string,
 	  dayClassName: _propTypes2.default.func,
 	  disabled: _propTypes2.default.bool,
 	  disabledKeyboardNavigation: _propTypes2.default.bool,
@@ -39309,18 +39313,20 @@
 	      if (!_this.props.forceShowMonthNavigation && (0, _date_utils.allDaysDisabledBefore)(_this.state.date, 'month', _this.props)) {
 	        return;
 	      }
-	      return _react2.default.createElement('a', {
-	        className: 'react-datepicker__navigation react-datepicker__navigation--previous',
-	        onClick: _this.decreaseMonth });
+	      return _react2.default.createElement('img', {
+	        src: !_.isEmpty(_this.props.leftArrow) && _this.props.leftArrow,
+	        onClick: _this.decreaseMonth,
+	        className: 'react-datepicker__navigation react-datepicker__navigation--previous' });
 	    };
 
 	    _this.renderNextMonthButton = function () {
 	      if (!_this.props.forceShowMonthNavigation && (0, _date_utils.allDaysDisabledAfter)(_this.state.date, 'month', _this.props)) {
 	        return;
 	      }
-	      return _react2.default.createElement('a', {
-	        className: 'react-datepicker__navigation react-datepicker__navigation--next',
-	        onClick: _this.increaseMonth });
+	      return _react2.default.createElement('img', {
+	        src: !_.isEmpty(_this.props.rightArrow) && _this.props.rightArrow,
+	        onClick: _this.increaseMonth,
+	        className: 'react-datepicker__navigation react-datepicker__navigation--next' });
 	    };
 
 	    _this.renderCurrentMonth = function () {
@@ -39579,6 +39585,8 @@
 	  openToDate: _propTypes2.default.object,
 	  peekNextMonth: _propTypes2.default.bool,
 	  addBefore: _propTypes2.default.string,
+	  leftArrow: _propTypes2.default.string,
+	  rightArrow: _propTypes2.default.string,
 	  scrollableYearDropdown: _propTypes2.default.bool,
 	  preSelection: _propTypes2.default.object,
 	  selected: _propTypes2.default.object,

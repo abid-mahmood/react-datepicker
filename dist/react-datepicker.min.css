@@ -114,15 +114,17 @@
   border: 0.45rem solid transparent;
   z-index: 1; }
   .react-datepicker__navigation--previous {
-    left: 10px;
-    border-right-color: #ccc; }
-    .react-datepicker__navigation--previous:hover {
-      border-right-color: #b3b2b2; }
+    width: 8px;
+    height: 8px;
+    background-color: #e8ecef;
+    border-radius: 9px;
+    left: 10px; }
   .react-datepicker__navigation--next {
-    right: 10px;
-    border-left-color: #ccc; }
-    .react-datepicker__navigation--next:hover {
-      border-left-color: #b3b2b2; }
+    width: 8px;
+    height: 8px;
+    background-color: #e8ecef;
+    border-radius: 9px;
+    right: 10px; }
   .react-datepicker__navigation--years {
     position: relative;
     top: 0;
