@@ -279,6 +279,8 @@ export default class Calendar extends React.Component {
     var monthList = []
     for (var i = 0; i < this.props.monthsShown; ++i) {
       var monthDate = this.state.date.clone().add(i, 'M')
+      console.log("Guchu")
+      console.log(monthDate)
       var monthKey = `month-${i}`
       monthList.push(
           <div key={monthKey} className="react-datepicker__month-container">

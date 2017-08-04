@@ -74,7 +74,7 @@
 
 .react-datepicker__current-month {
   height: 22px;
-  font-family: Roboto;
+  font-family: Roboto Condensed,sans-serif;
   font-size: 18px;
   font-stretch: condensed;
   line-height: 1.22;
@@ -159,7 +159,7 @@
         width: 36px;
         height: 20px;
         opacity: 0.5;
-        font-family: Roboto;
+        font-family: Roboto Condensed,sans-serif;
         font-size: 12px;
         font-stretch: condensed;
         line-height: 1.67;
@@ -248,7 +248,7 @@
   // color: $datepicker__text-color;
   display: inline-block;
   padding-right: 19px;
-  font-family: Roboto;
+  font-family: Roboto Condensed,sans-serif;
   font-size: 13px;
   font-weight: bold;
   font-stretch: condensed;
