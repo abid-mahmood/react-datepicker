@@ -39408,6 +39408,8 @@
 	      var monthList = [];
 	      for (var i = 0; i < _this.props.monthsShown; ++i) {
 	        var monthDate = _this.state.date.clone().add(i, 'M');
+	        console.log("Guchu");
+	        console.log(monthDate);
 	        var monthKey = 'month-' + i;
 	        monthList.push(_react2.default.createElement(
 	          'div',
