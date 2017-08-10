@@ -26,6 +26,7 @@ export default class Calendar extends React.Component {
     ]).isRequired,
     dayClassName: PropTypes.func,
     handleSetDate: PropTypes.func,
+    handleCancelEvent: PropTypes.func,
     dropdownMode: PropTypes.oneOf(['scroll', 'select']).isRequired,
     endDate: PropTypes.object,
     excludeDates: PropTypes.array,
@@ -70,6 +71,7 @@ export default class Calendar extends React.Component {
       onDropdownFocus: () => {},
       utcOffset: moment.utc().utcOffset(),
       handleSetDate: () => {},
+      handleCancelEvent: () => {},
       monthsShown: 1,
       forceShowMonthNavigation: false
     }
@@ -279,8 +281,6 @@ export default class Calendar extends React.Component {
     var monthList = []
     for (var i = 0; i < this.props.monthsShown; ++i) {
       var monthDate = this.state.date.clone().add(i, 'M')
-      console.log("Guchu")
-      console.log(monthDate)
       var monthKey = `month-${i}`
       monthList.push(
           <div key={monthKey} className="react-datepicker__month-container">

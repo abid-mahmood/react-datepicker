@@ -9,7 +9,7 @@ import moment from 'moment'
 import onClickOutside from 'react-onclickoutside'
 
 const outsideClickIgnoreClass = 'react-datepicker-ignore-onclickoutside'
-const WrappedCalendar = onClickOutside(Calendar)
+const WrappedCalendar = Calendar
 
 /**
  * General datepicker component.
@@ -33,6 +33,7 @@ export default class DatePicker extends React.Component {
     leftArrow: PropTypes.string,
     rightArrow: PropTypes.string,
     dayClassName: PropTypes.func,
+    handleCancelEvent: PropTypes.func,
     disabled: PropTypes.bool,
     disabledKeyboardNavigation: PropTypes.bool,
     dropdownMode: PropTypes.oneOf(['scroll', 'select']).isRequired,
@@ -93,6 +94,7 @@ export default class DatePicker extends React.Component {
       dateFormat: 'L',
       dateFormatCalendar: 'MMMM YYYY',
       onChange () {},
+      handleCancelEvent () {},
       disabled: false,
       disabledKeyboardNavigation: false,
       dropdownMode: 'scroll',
@@ -386,7 +388,7 @@ export default class DatePicker extends React.Component {
         className={this.props.calendarClassName}
         yearDropdownItemNumber={this.props.yearDropdownItemNumber}
         handleSetDate={this.handleSetDateAndTime}
-        handleCancelEvent={this.handleCancelEvent}
+        handleCancelEvent={this.props.handleCancelEvent || this.handleCancelEvent}
         addBefore={this.props.addBefore ? this.props.addBefore : ''}
         leftArrow={this.props.leftArrow ? this.props.leftArrow : ''}
         rightArrow={this.props.rightArrow ? this.props.rightArrow : ''}>
