@@ -265,8 +265,10 @@
   cursor: pointer;
 
   &:hover {
-    border-radius: $datepicker__border-radius;
+    border-radius: 1.3rem;
     background-color: $datepicker__background-color;
+    padding-right: 10px;
+    padding-left: 10px;
   }
 
   &--today {
@@ -310,7 +312,8 @@
   }
 
   &--keyboard-selected {
-    border-radius: $datepicker__border-radius;
+    border-radius: 1.3rem;
+    padding-right: 5px;
     background-color: lighten($datepicker__selected-color, 10%);
     color: #fff;
 
