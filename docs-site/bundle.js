@@ -38643,7 +38643,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var outsideClickIgnoreClass = 'react-datepicker-ignore-onclickoutside';
-	var WrappedCalendar = (0, _reactOnclickoutside2.default)(_calendar2.default);
+	var WrappedCalendar = _calendar2.default;
 
 	/**
 	 * General datepicker component.
@@ -38660,6 +38660,7 @@
 	        dateFormat: 'L',
 	        dateFormatCalendar: 'MMMM YYYY',
 	        onChange: function onChange() {},
+	        handleCancelEvent: function handleCancelEvent() {},
 
 	        disabled: false,
 	        disabledKeyboardNavigation: false,
@@ -38951,7 +38952,7 @@
 	          className: _this.props.calendarClassName,
 	          yearDropdownItemNumber: _this.props.yearDropdownItemNumber,
 	          handleSetDate: _this.handleSetDateAndTime,
-	          handleCancelEvent: _this.handleCancelEvent,
+	          handleCancelEvent: _this.props.handleCancelEvent || _this.handleCancelEvent,
 	          addBefore: _this.props.addBefore ? _this.props.addBefore : '',
 	          leftArrow: _this.props.leftArrow ? _this.props.leftArrow : '',
 	          rightArrow: _this.props.rightArrow ? _this.props.rightArrow : '' },
@@ -39064,6 +39065,7 @@
 	  leftArrow: _propTypes2.default.string,
 	  rightArrow: _propTypes2.default.string,
 	  dayClassName: _propTypes2.default.func,
+	  handleCancelEvent: _propTypes2.default.func,
 	  disabled: _propTypes2.default.bool,
 	  disabledKeyboardNavigation: _propTypes2.default.bool,
 	  dropdownMode: _propTypes2.default.oneOf(['scroll', 'select']).isRequired,
@@ -39190,6 +39192,7 @@
 	        onDropdownFocus: function onDropdownFocus() {},
 	        utcOffset: _moment2.default.utc().utcOffset(),
 	        handleSetDate: function handleSetDate() {},
+	        handleCancelEvent: function handleCancelEvent() {},
 	        monthsShown: 1,
 	        forceShowMonthNavigation: false
 	      };
@@ -39408,8 +39411,6 @@
 	      var monthList = [];
 	      for (var i = 0; i < _this.props.monthsShown; ++i) {
 	        var monthDate = _this.state.date.clone().add(i, 'M');
-	        console.log("Guchu");
-	        console.log(monthDate);
 	        var monthKey = 'month-' + i;
 	        monthList.push(_react2.default.createElement(
 	          'div',
@@ -39566,6 +39567,7 @@
 	  dateFormat: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.array]).isRequired,
 	  dayClassName: _propTypes2.default.func,
 	  handleSetDate: _propTypes2.default.func,
+	  handleCancelEvent: _propTypes2.default.func,
 	  dropdownMode: _propTypes2.default.oneOf(['scroll', 'select']).isRequired,
 	  endDate: _propTypes2.default.object,
 	  excludeDates: _propTypes2.default.array,
