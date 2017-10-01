@@ -191,6 +191,7 @@
     flex-wrap: nowrap;
     margin-bottom: 20px;
     .react-custom-flex-item {
+      min-height: 35px;
       // padding-right: 27px;
       padding-right: 10px;
       &:nth-child(1) {
@@ -203,7 +204,7 @@
       }
       select {
         width: 70px;
-        height: 103% !important;
+        height: 135% !important;
         border-radius: 4px;
         border: solid 1px #e8ecef;
         background-color: white;
